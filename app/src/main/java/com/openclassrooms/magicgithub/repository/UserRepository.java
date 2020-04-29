@@ -9,22 +9,21 @@ public class UserRepository {
 
     private final ApiService apiService;
 
-    public List<User> users = generateUsers();
-
     public UserRepository(ApiService apiService) {
         this.apiService = apiService;
     }
 
+
     public List<User> getUsers() {
-        return users;
+    return apiService.getUsers();
     }
 
     public void generateRandomUser() {
-        users.add(User.random());
+        apiService.generateRandomUser();
 
     }
 
     public void deleteUser(User user) {
-        users.remove(user);
+        apiService.deleteUser(user);
     }
 }
